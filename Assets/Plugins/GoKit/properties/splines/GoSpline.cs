@@ -4,6 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Networking;
 
 
 public class GoSpline
@@ -83,10 +84,10 @@ public class GoSpline
 		{
 			path = Path.Combine( "jar:file://" + Application.dataPath + "!/assets/", pathAssetName );
 		
-			WWW loadAsset = new WWW( path );
+			UnityWebRequest loadAsset = new UnityWebRequest( path );
 			while( !loadAsset.isDone ) { } // maybe make a safety check here
 			
-			return bytesToVector3List( loadAsset.bytes );
+			// return bytesToVector3List( loadAsset.bytes );
 		}
 		else if( Application.platform == RuntimePlatform.IPhonePlayer )
 		{
